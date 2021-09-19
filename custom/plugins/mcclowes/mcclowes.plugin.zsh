@@ -27,16 +27,6 @@ function mcclowes-react-scripts {
   create-react-app --scripts-version mcclowes-react-scripts $dirName;
 }
 
-function moveImages {
-  FILES=(`echo '${PWD}/*.png'`)
-  for file in $FILES; do
-    echo "Provessing $file..."
-    #BRANCH="$( echo "$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)" | tr '-' ' ' )";
-    #FOLDER=(`echo ${ARR[0]}-${ARR[1]}`);
-    #mkdir ${FOLDER}
-  done
-}
-
 # reboot shell, updating shells path
 function reboot-shell {
   exec "$SHELL"
