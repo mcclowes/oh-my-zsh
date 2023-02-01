@@ -9,11 +9,12 @@ function gitCurrentBranch {
 }
 
 # git pull request
-alias gpr='gco master; git pull; gco -; git rebase master; git push --force-with-lease'
+# alias gpr='gco master; git pull; gco -; git rebase master; git push --force-with-lease'
+alias gpr='gco main; git pull; gco -; git rebase main; git push --force-with-lease'
 
 # Rebase/rename commigs
 function grebb { ## git rebase branch
-  git rebase -i $( git merge-base $( gitCurrentBranch ) master );
+  git rebase -i $( git merge-base $( gitCurrentBranch ) main );
   git push --force;
 }
 
@@ -21,7 +22,7 @@ function greba { ## git rebase all
   if [ $# -eq 0 ]; then # nor args
     git rebase -i --root;
   else;
-    git rebase -i "master~$1";
+    git rebase -i "main~$1";
   fi;
   git push --force;
 }
@@ -34,7 +35,7 @@ function move-bb-to-github {
   else;
     git remote rename origin bitbucket;
     git remote add origin ${1};
-    git push origin master;
+    git push origin main;
     git remote rm bitbucket; 
   fi;
 }
@@ -42,8 +43,8 @@ function move-bb-to-github {
 function update-forked-branch {
   git remote add upstream ${1};
   git fetch upstream;
-  git checkout master;
-  git rebase upstream/master;
+  git checkout main;
+  git rebase upstream/main;
 }
 
 function gb-rename {
