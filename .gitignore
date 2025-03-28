@@ -1,9 +1,15 @@
 # custom files
-!custom/plugins/example
-!custom/example.zsh
+custom/
 
 # temp files directories
 cache/
 log/
-
+*.swp
 .DS_Store
+
+# editor configs
+.vscode
+.idea
+
+# zcompile cached files
+*.zwc
